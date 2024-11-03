@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minezin Hoje?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Minezin Hoje?</h1>
+    <button id="noButton">Não</button>
+    <button id="yesButton">Sim</button>
+    <div id="message"></div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const message = document.getElementById('message');
+
+        // Função para mover o botão "Não"
+        function moveNoButton() {
+            const randomX = Math.floor(Math.random() * (window.innerWidth - 100));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - 100));
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+
+        noButton.addEventListener('click', () => {
+            moveNoButton();
+        });
+
+        yesButton.addEventListener('click', () => {
+            message.innerText = 'OBRIGADO, AGORA ENTRA AI NO TLAUNCHER ,)';
+            noButton.style.display = 'none'; // Oculta o botão "Não"
+            yesButton.style.display = 'none'; // Oculta o botão "sim"
+        });
+    </script>
+</body>
+</html>
